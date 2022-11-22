@@ -1,4 +1,4 @@
-# A* Pathfinding Algorithm :green_book:
+# A* Pathfinding Algorithm :zap:
 
 ***Demo project** for my compsci class **2022***
 
@@ -9,4 +9,6 @@ I wrote this little program to be able to show how the A* pathfinding algorithm 
 - Traces the optimal path in green
 - Orange nodes show nodes that have been inspected
 
-> ## All credits goes to *RyiSnow* on YouTube
+```text
+All credits goes to RyiSnow on YouTube
+```
