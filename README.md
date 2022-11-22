@@ -1,4 +1,4 @@
-# A* Pathfinding Algorithm
+# A* Pathfinding Algorithm :lightning:
 
 ***Demo project** for my compsci class **2022***
 

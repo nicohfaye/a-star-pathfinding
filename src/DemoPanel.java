@@ -21,8 +21,7 @@ public class DemoPanel extends JPanel {
 
     public DemoPanel() {
 
-
-        this.setPreferredSize(new Dimension(screenWidth, screenHeight ));
+        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setLayout(new GridLayout(maxRow, maxCol));
         this.addKeyListener(new KeyHandler(this));
@@ -32,7 +31,7 @@ public class DemoPanel extends JPanel {
         int col = 0;
         int row = 0;
 
-        while(col < maxCol && row < maxRow) {
+        while (col < maxCol && row < maxRow) {
             node[col][row] = new Node(col, row);
             this.add(node[col][row]);
 
@@ -44,7 +43,7 @@ public class DemoPanel extends JPanel {
         }
 
         // SET START AND GOAL NODE
-        setStartNode(2, 1);
+        setStartNode(4, 5);
         setGoalNode(11, 2);
 
         setSolidNode(10, 2);
@@ -71,6 +70,7 @@ public class DemoPanel extends JPanel {
         startNode = node[col][row];
         currentNode = startNode;
     }
+
     private void setGoalNode(int col, int row) {
         node[col][row].setAsGoal();
         goalNode = node[col][row];
@@ -83,7 +83,7 @@ public class DemoPanel extends JPanel {
     private void setCostOnNodes() {
         int col = 0;
         int row = 0;
-        while(col < maxCol && row < maxRow) {
+        while (col < maxCol && row < maxRow) {
             getCost(node[col][row]);
             col++;
             if (col == maxCol) {
@@ -92,6 +92,7 @@ public class DemoPanel extends JPanel {
             }
         }
     }
+
     private void getCost(Node node) {
         // GET THE G COST (Distance from start node)
         int xDistance = Math.abs(node.col - startNode.col);
@@ -106,7 +107,7 @@ public class DemoPanel extends JPanel {
         // GET THE F COST
         node.fCost = node.gCost + node.hCost;
 
-        if (node != startNode && node != goalNode ) {
+        if (node != startNode && node != goalNode) {
             node.setText("<html>F:" + node.fCost + "<br>G:" + node.gCost + "</html>");
         }
     }
@@ -150,7 +151,7 @@ public class DemoPanel extends JPanel {
                 }
                 // If the F cost is equal, check the G cost
                 if (openList.get(i).fCost == bestNodefCost) {
-                    if(openList.get(i).gCost < openList.get(bestNodeIndex).gCost) {
+                    if (openList.get(i).gCost < openList.get(bestNodeIndex).gCost) {
                         bestNodeIndex = i;
                     }
                 }
@@ -167,6 +168,7 @@ public class DemoPanel extends JPanel {
 
         }
     }
+
     private void openNode(Node node) {
         if (!node.open && !node.checked && !node.solid) {
             // If node is not opened yet, add it to the open list
@@ -175,9 +177,10 @@ public class DemoPanel extends JPanel {
             openList.add(node);
         }
     }
+
     private void trackThePath() {
         Node current = goalNode;
-        while(current != startNode) {
+        while (current != startNode) {
             current = current.parent;
             if (current != startNode) {
                 current.setAsPath();
