@@ -12,6 +12,3 @@ I wrote this little program to be able to show how the A* pathfinding algorithm 
 ```text
 All credits goes to RyiSnow on YouTube
 ```
-
-
-![Uploading Screenshot 2023-11-10 at 09.53.05.png…]()
